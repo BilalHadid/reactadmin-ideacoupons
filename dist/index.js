@@ -1,8 +1,10 @@
 'use strict';
 
-function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
+var sortBy = require('sort-by');
 
-var sortBy = _interopDefault(require('sort-by'));
+function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
+
+var sortBy__default = /*#__PURE__*/_interopDefaultLegacy(sortBy);
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
   return typeof obj;
@@ -247,7 +249,7 @@ var index = (function (firebase) {
                     var values = [];
                     values = valuesToReturn;
                     if (params.sort) {
-                      values.sort(sortBy('' + (params.sort.order === 'ASC' ? '-' : '') + params.sort.field));
+                      values.sort(sortBy__default['default']('' + (params.sort.order === 'ASC' ? '-' : '') + params.sort.field));
                     }
                     var _params$pagination = params.pagination,
                         page = _params$pagination.page,
