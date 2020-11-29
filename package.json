@@ -1,10 +1,10 @@
 {
   "name": "ideacouponadmin",
   "version": "3.0.0",
-  "description": "Firebase data provider for react-admin framework. demo at https://BilalHadid.github.io/ideacouponAdmin",
+  "description": "Firebase data provider for react-admin framework. demo at https://BilalHadid.github.io/ideacouponAdminpane",
   "author": "bilal",
   "license": "MIT",
-  "repository": "BilalHadid/ideacouponAdmin",
+  "repository": "BilalHadid/ideacouponAdminpane",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "jsnext:main": "dist/index.es.js",
