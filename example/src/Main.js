@@ -57,7 +57,7 @@ import SliderEdit from "./component/slider/SliderEdit";
 import SliderCreate from "./component/slider/SliderCreate";
 import SliderList from "./component/slider/SliderList";
 import SlideshowIcon from "@material-ui/icons/Slideshow";
-import authProvider from "./component/authProvider";
+// import authProvider from "./component/authProvider";
 import DealList from "./component/Deals/DealList";
 import DealCreate from "./component/Deals/DealCreate";
 import DealEdit from "./component/Deals/DealEdit";
