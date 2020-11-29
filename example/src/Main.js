@@ -64,6 +64,7 @@ import DealEdit from "./component/Deals/DealEdit";
 import CountryList from "./component/Country/CountryList";
 import CountryEdit from "./component/Country/CountryEdit";
 import CountryCreate from "./component/Country/CountryCreate";
+import { emailAndPasswordAuthProvider } from "ra-auth-firebase-client";
 import firebase from "firebase/app";
 import "firebase/database";
 import "firebase/auth";
@@ -79,6 +80,7 @@ const settings = {
 const Main = () => {
   return (
     <Admin
+      authProvider={emailAndPasswordAuthProvider(firebase)}
       title="Idea Coupon"
       dashboard={Dashbord}
       dataProvider={firebaseDataProvider(firebase, settings)}
