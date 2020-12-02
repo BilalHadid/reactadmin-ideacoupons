@@ -174,7 +174,6 @@ label {
 .content p {
   font-size: 14px;
   line-height: 22px;
-  color: #7c7c7c;
   text-align: justify;
 }
 
@@ -869,7 +868,6 @@ h3 {
 p {
   margin: 15px 0;
   line-height: 24px;
-  color: gainsboro;
 }
 a {
   color: dodgerblue;
