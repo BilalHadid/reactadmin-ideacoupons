@@ -10,6 +10,7 @@ import {
   DateInput,
   ReferenceInput,
   required,
+  RadioButtonGroupInput,
 } from "react-admin";
 
 import RichTextInput from "ra-input-rich-text";
@@ -59,38 +60,116 @@ import RichTextInput from "ra-input-rich-text";
 // };
 const CouponCreate = (props) => {
   return (
-    <Create title="Create a Forum & Categories" {...props}>
+    <Create title="Create a Coupon" {...props}>
       <SimpleForm>
-        <TextInput source="title" validate={required()} />
-        <RichTextInput source="type" label="Description" />
+        <div
+          style={{
+            marginBottom: "-55px",
+            marginTop: "-55px",
+            marginLeft: "-25px",
+          }}
+        >
+          <h1 class="second">
+            <span>Add Coupons</span>
+          </h1>
+        </div>
+        <div style={{ display: "flex", width: "80%" }}>
+          <p style={{ color: "black", width: "100%" }}>Coupon Title*</p>
+          <TextInput
+            source="title"
+            label="Enter Coupon Title"
+            validate={required()}
+            style={{ width: "380%" }}
+          />
+        </div>
+        <div style={{ display: "flex", width: "80%" }}>
+          <p style={{ color: "black", width: "100%" }}>Coupon Description*</p>
+          <TextInput
+            source="type"
+            label="Description"
+            style={{ width: "380%" }}
+          />
+        </div>
+        <div style={{ display: "flex", width: "80%" }}>
+          <p style={{ color: "black", width: "100%" }}>Coupon URL*</p>
+          <TextInput
+            source="dealURL"
+            label="Enter Coupon URL"
+            style={{ width: "380%" }}
+          />
+        </div>
+        <div style={{ display: "flex", width: "80%" }}>
+          <p style={{ color: "black", width: "100%" }}>Coupon Code</p>
+          <TextInput
+            source="couponscode"
+            label="Coupons Code"
+            style={{ width: "380%" }}
+          />
+        </div>
+        <div style={{ display: "flex", width: "80%" }}>
+          <p style={{ color: "black", width: "100%" }}>Starting Date</p>
+          <DateInput
+            source="dealStart"
+            // defaultValue={new Date()}
+            // defaultValue={new Date()}
+            label="Starting Date"
+            style={{ width: "380%" }}
+          />
+        </div>
+        <div style={{ display: "flex", width: "80%" }}>
+          <p style={{ color: "black", width: "100%" }}>Expiry Date</p>
+          <DateInput
+            source="dealexpire"
+            label="Expire Date"
+            style={{ width: "380%" }}
+          />
+        </div>
 
-        <TextInput source="couponscode" label="Coupons Code" />
-
-        <DateInput
-          source="dealStart"
-          defaultValue={new Date()}
-          label="Starting Date"
-        />
-        <DateInput source="dealexpire" label="Expire Date" />
-        <ReferenceInput
+        {/* <ReferenceInput
           label="Forum & Category"
           source="ForumCategory"
           reference="forumcategory"
         >
           <SelectInput optionText="title" />
-        </ReferenceInput>
+        </ReferenceInput> */}
         {/* <SelectInput source="user" choices={[{ id: "jhon", name: "Jhon" }]} /> */}
-        <ReferenceInput label="users" source="user" reference="users">
+        {/* <ReferenceInput label="users" source="user" reference="users">
           <SelectInput optionText="name" />
-        </ReferenceInput>
-        {/* <SelectInput
+        </ReferenceInput> */}
+        {/* <SelectInput  
           source="ForumCategory"
           choices={[{ id: "coupon", name: "General Coupon" }]}
         /> */}
-
-        <ReferenceInput label="store" source="store" reference="store">
-          <SelectInput multiple native optionText="title" />
-        </ReferenceInput>
+        <div style={{ display: "flex", width: "100%" }}>
+          <p style={{ color: "black", width: "20%" }}>Networks*</p>
+          <div className="Rasdio" style={{ width: "20%" }}>
+            {/* <RadioButtonGroupInput
+            source="SelectNetwork"
+            choices={[
+              { id: "programming", name: "Paid On Result" },
+              { id: "photography", name: "ClickWise" },
+            ]}
+          /> */}
+            <ReferenceInput
+              label="Networks"
+              source="SelectNetwork"
+              reference="networks"
+            >
+              <RadioButtonGroupInput optionText="name" />
+            </ReferenceInput>
+          </div>
+        </div>
+        <div style={{ display: "flex", width: "80%" }}>
+          <p style={{ color: "black", width: "100%" }}>Store</p>
+          <ReferenceInput
+            label="store"
+            source="store"
+            reference="store"
+            style={{ width: "380%" }}
+          >
+            <SelectInput multiple native optionText="title" />
+          </ReferenceInput>
+        </div>
 
         {/* <InputLabel shrink htmlFor="select-multiple-native">
           Native
@@ -133,11 +212,33 @@ const CouponCreate = (props) => {
             { id: "3", name: "Accessories" },
           ]}
         /> */}
-        <ReferenceInput label="Category" source="category" reference="posts">
-          <SelectInput optionText="title" />
-        </ReferenceInput>
+        <div style={{ display: "flex", width: "80%" }}>
+          <p style={{ color: "black", width: "100%" }}>Categories</p>
 
+          <ReferenceInput
+            label="Category"
+            source="category"
+            reference="posts"
+            style={{ width: "380%" }}
+          >
+            <SelectInput optionText="title" />
+          </ReferenceInput>
+        </div>
+        {/* <ReferenceInput label="Category" source="category" reference="posts">
+          <SelectInput optionText="title" />
+        </ReferenceInput> */}
         {/* <ImageInput source="image" label="title" accept="image/*"></ImageInput> */}
+        <div style={{ display: "flex", width: "80%" }}>
+          <p style={{ color: "black", width: "100%" }}>Image URL</p>
+
+          <TextInput
+            source="image"
+            label="Enter URL Image"
+            style={{ width: "380%" }}
+          />
+        </div>
+
+        <span>OR</span>
         <ImageInput
           source=""
           label="title"
@@ -152,12 +253,7 @@ const CouponCreate = (props) => {
         >
           <ImageField source="image" title="images" />
         </ImageInput>
-        <span>OR</span>
-        <TextInput
-          source="image"
-          label="Enter URL if You're not upload image"
-        />
-        <TextInput source="dealURL" />
+
         <BooleanInput source="fetured" />
         <BooleanInput source="dealExclusive" />
         <BooleanInput source="Verified" />

@@ -86,7 +86,15 @@ const Main = () => {
       dataProvider={firebaseDataProvider(firebase, settings)}
     >
       <Resource
+        name="store"
+        icon={StoreIcon}
+        list={StoreList}
+        create={StoreCreate}
+        edit={StoreEdit}
+      />
+      <Resource
         name="posts"
+        label="Category"
         icon={CategoryIcon}
         list={PostList}
         create={PostCreate}
@@ -100,20 +108,7 @@ const Main = () => {
         create={NetworkCreate}
         edit={NetworkEdit}
       />
-      <Resource
-        name="Events"
-        icon={EventIcon}
-        list={EventList}
-        create={EventCreate}
-        edit={EventEdit}
-      />
-      <Resource
-        name="store"
-        icon={StoreIcon}
-        list={StoreList}
-        create={StoreCreate}
-        edit={StoreEdit}
-      />
+
       <Resource
         name="forumcategory"
         icon={ForumIcon}
@@ -134,6 +129,13 @@ const Main = () => {
         list={DealList}
         create={DealCreate}
         edit={DealEdit}
+      />
+      <Resource
+        name="events"
+        icon={EventIcon}
+        list={EventList}
+        create={EventCreate}
+        edit={EventEdit}
       />
       <Resource
         name="country"

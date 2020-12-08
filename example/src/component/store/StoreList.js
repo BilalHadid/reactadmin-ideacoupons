@@ -24,17 +24,25 @@ const StoreList = (props) => {
   return (
     <List {...props} filters={<PostFilter />}>
       <Datagrid>
-        <TextField source="id" label="#" />
+        {/* <TextField source="id" label="#" /> */}
 
-        <TextField source="title" label="Title" />
+        {/* <TextField source="title" label="Title"  /> */}
+        <TextField source="name" label="Store Name" />
 
         {/* <UrlField source="" /> */}
         <ReferenceField
-          label="Networks"
+          label="Networks Name"
           source="SelectNetwork"
           reference="networks"
         >
           <TextField source="name" label="Networks" />
+        </ReferenceField>
+        <ReferenceField
+          label="Category Name"
+          source="category"
+          reference="posts"
+        >
+          <TextField source="title" label="Category" />
         </ReferenceField>
         <TextField source="Address" />
         <BooleanField source="featured" />

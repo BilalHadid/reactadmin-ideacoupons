@@ -16,11 +16,7 @@ const PostFilter = (props) => (
 
 const EventList = (props) => {
   return (
-    <List
-      {...props}
-      filters={<PostFilter />}
-      filterDefaultValues={{ is_published: true }}
-    >
+    <List {...props} filters={<PostFilter />}>
       <Datagrid>
         <TextField source="id" />
         <TextField source="name" />

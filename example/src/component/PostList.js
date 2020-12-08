@@ -15,6 +15,7 @@ import {
   sanitizeListRestProps,
   CreateButton,
   BooleanField,
+  DateField,
 } from "react-admin";
 import "./user.css";
 // import jsonExport from "jsonexport/dist";
@@ -92,7 +93,7 @@ const PostList = (props) => {
       bulkActions={false}
     >
       <Datagrid rowClick="toggleSelection">
-        <TextField source="id" />
+        {/* <TextField source="id" /> */}
         {/* <ImageField source="image" title="images" className="thumbNail" /> */}
         <TextField source="title" sortBy="ASC" />
         <TextField source="icon" />

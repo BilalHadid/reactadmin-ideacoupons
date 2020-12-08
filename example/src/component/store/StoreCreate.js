@@ -8,45 +8,126 @@ import {
   ImageField,
   RadioButtonGroupInput,
   DateInput,
+  SelectInput,
   ReferenceInput,
 } from "react-admin";
 // import { Card } from "@material-ui/core";
 import RichTextInput from "ra-input-rich-text";
 import "../user.css";
-
+import TextareaAutosize from "@material-ui/core/TextareaAutosize";
 const StoreCreate = (props) => {
   return (
-    <Create title="Create a Event" {...props}>
+    <Create title="Create a Store" {...props}>
       <SimpleForm>
-        <TextInput source="title" />
-        <TextInput source="name" />
-        <TextInput source="url" />
-        <TextInput source="Tracking Link" />
-        <TextInput source="metatitle" />
-        <TextInput source="metaKeywords" />
-        <TextInput source="metaDisc" />
+        <div
+          style={{
+            marginBottom: "-55px",
+            marginTop: "-55px",
+            marginLeft: "-55px",
+          }}
+        >
+          <h1 class="second">
+            <span>Add Store</span>
+          </h1>
+        </div>
+        <div style={{ display: "flex", width: "80%" }}>
+          <p style={{ color: "black", width: "100%" }}>Store Name *</p>
+          <TextInput
+            source="name"
+            label="Enter Store Name"
+            style={{ width: "380%" }}
+          />
+        </div>
+        <div style={{ display: "flex", width: "80%" }}>
+          <p style={{ color: "black", width: "100%" }}>Store title *</p>
+          <TextInput
+            source="title"
+            label="Enter Store title"
+            style={{ width: "380%" }}
+          />
+        </div>
+        <div style={{ display: "flex", width: "80%" }}>
+          <p style={{ color: "black", width: "100%" }}>Store WebAddress*</p>
+          <TextInput
+            source="url"
+            label="Enter Store WebAddress"
+            style={{ width: "380%" }}
+          />
+        </div>
+        <div style={{ display: "flex", width: "80%" }}>
+          <p style={{ color: "black", width: "100%" }}>Tracking Link*</p>
+          <TextInput
+            source="TrackingLink"
+            label="Enter Store Tracking Link"
+            style={{ width: "380%" }}
+          />
+        </div>
+        <div style={{ display: "flex", width: "80%" }}>
+          <p style={{ color: "black", width: "100%" }}>Meta Title*</p>
+          <TextInput
+            source="metatitle"
+            label="Enter Store Meta Title"
+            style={{ width: "380%" }}
+          />
+        </div>
+        <div style={{ display: "flex", width: "80%" }}>
+          <p style={{ color: "black", width: "100%" }}>Meta Keywords*</p>
+
+          <TextInput
+            source="metaKeywords"
+            label="Enter Store metaKeyword"
+            style={{ width: "380%" }}
+          />
+        </div>
+        <div style={{ display: "flex", width: "80%" }}>
+          <p style={{ color: "black", width: "100%" }}>Meta Disc*</p>
+          <TextInput source="metaDisc" style={{ width: "380%" }} />
+        </div>
+        <div style={{ display: "flex", width: "80%" }}>
+          <p style={{ color: "black", width: "20%" }}>Categories*</p>
+          <ReferenceInput label="Category" source="category" reference="posts">
+            <SelectInput optionText="title" />
+          </ReferenceInput>
+        </div>
+
+        <div style={{ display: "flex", width: "80%" }}>
+          <p style={{ color: "black", width: "100%" }}>Description*</p>
+        </div>
         <RichTextInput source="Description" />
-        <div className="Rasdio" style={{ width: "20%" }}>
-          {/* <RadioButtonGroupInput
+        {/* <MarkdownInput source="Description" /> */}
+        <div style={{ display: "flex", width: "100%" }}>
+          <p style={{ color: "black", width: "20%" }}>Networks*</p>
+          <div className="Rasdio" style={{ width: "20%" }}>
+            {/* <RadioButtonGroupInput
             source="SelectNetwork"
             choices={[
               { id: "programming", name: "Paid On Result" },
               { id: "photography", name: "ClickWise" },
             ]}
           /> */}
-          <ReferenceInput
-            label="Networks"
-            source="SelectNetwork"
-            reference="networks"
-          >
-            <RadioButtonGroupInput optionText="name" />
-          </ReferenceInput>
+            <ReferenceInput
+              label="Networks"
+              source="SelectNetwork"
+              reference="networks"
+            >
+              <RadioButtonGroupInput optionText="name" />
+            </ReferenceInput>
+          </div>
         </div>
-        <DateInput source="leftTime" />
+
+        {/* <DateInput source="leftTime" /> */}
         {/* <ImageInput source="image" label="desc" accept="">
           <ImageField source="image" src="url" title="desc" />
         </ImageInput> */}
-        <TextInput source="image" label="Enter Url for Image" />
+        <div style={{ display: "flex", width: "80%" }}>
+          <p style={{ color: "black", width: "100%" }}>Enter Image URL*</p>
+          <TextInput
+            source="image"
+            label="Enter Url for Image"
+            style={{ width: "380%" }}
+          />
+        </div>
+
         <span>OR</span>
         <ImageInput
           source=""

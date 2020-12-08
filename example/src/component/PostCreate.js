@@ -89,6 +89,7 @@ const PostCreate = (props) => {
         <TextInput
           source="icon"
           defaultValue={state.icon}
+          resettable
           label="Enter icons"
         />
         {/* </ImageInput> */}

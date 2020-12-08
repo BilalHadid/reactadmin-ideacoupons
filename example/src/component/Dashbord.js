@@ -55,7 +55,9 @@ const Dashbord = () => {
   return (
     <div>
       <div>
-        <h1 style={{ paddingLeft: "10px" }}>Dashbord</h1>
+        <h1 className="second">
+          <span>Dashbord</span>
+        </h1>
       </div>
       <div className={classes.main}>
         <Card
@@ -69,7 +71,7 @@ const Dashbord = () => {
               color="textSecondary"
               gutterBottom
             >
-              {"1"}
+              {"2"}
             </Typography>
 
             <Typography className={classes.pos} color="textSecondary">
@@ -96,7 +98,7 @@ const Dashbord = () => {
               color="textSecondary"
               gutterBottom
             >
-              {"176"}
+              {"10"}
             </Typography>
 
             <Typography className={classes.pos} color="textSecondary">
@@ -122,7 +124,7 @@ const Dashbord = () => {
               color="textSecondary"
               gutterBottom
             >
-              {"230"}
+              {"9"}
             </Typography>
 
             <Typography className={classes.pos} color="textSecondary">
@@ -148,7 +150,7 @@ const Dashbord = () => {
               color="textSecondary"
               gutterBottom
             >
-              {"192"}
+              {"12"}
             </Typography>
 
             <Typography className={classes.pos} color="textSecondary">
@@ -174,7 +176,7 @@ const Dashbord = () => {
               color="textSecondary"
               gutterBottom
             >
-              {"617"}
+              {"7"}
             </Typography>
 
             <Typography className={classes.pos} color="textSecondary">
