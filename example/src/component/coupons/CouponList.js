@@ -12,24 +12,88 @@ import {
   SelectInput,
   TextInput,
   ReferenceField,
+  FilterLiveSearch,
 } from "react-admin";
+
+import { Card as MuiCard, CardContent, withStyles } from "@material-ui/core";
 
 import "../user.css";
 
 const PostFilter = (props) => (
   <Filter {...props}>
-    <TextInput label="Search" source="id" alwaysOn />
-    <ReferenceInput label="User" source="title" reference="user" allowEmpty>
-      <SelectInput optionText="user" />
-    </ReferenceInput>
+    <TextInput label="Search" source="type" alwaysOn />
   </Filter>
 );
+const Card = withStyles((theme) => ({
+  root: {
+    [theme.breakpoints.up("sm")]: {
+      order: -1, // display on the left rather than on the right of the list
+      width: "15em",
+    },
+    [theme.breakpoints.down("sm")]: {
+      display: "none",
+    },
+  },
+}))(MuiCard);
+const FilterSidebar = () => (
+  <Card style={{ width: "500px" }}>
+    <CardContent>
+      <div style={{ display: "flex", width: "80%" }}>
+        <p style={{ color: "black", width: "100%" }}>Id</p>
+        <FilterLiveSearch
+          source="id"
+          label="Enter Coupon id"
+          style={{ width: "400%" }}
+        />
+      </div>
 
+      <div style={{ display: "flex", width: "80%" }}>
+        <p style={{ color: "black", width: "100%" }}>Type</p>
+        <FilterLiveSearch
+          source="type"
+          label="Enter Coupon type"
+          style={{ width: "400%" }}
+        />
+      </div>
+      <div style={{ display: "flex", width: "80%" }}>
+        <p style={{ color: "black", width: "100%" }}>Title</p>
+        <FilterLiveSearch
+          source="title"
+          label="Enter Coupon Title"
+          style={{ width: "400%" }}
+        />
+      </div>
+
+      <div style={{ display: "flex", width: "80%" }}>
+        <p style={{ color: "black", width: "100%" }}>Network</p>
+        <FilterLiveSearch
+          source="SelectNetwork"
+          label="Enter Network"
+          style={{ width: "450%" }}
+        />
+      </div>
+
+      <div style={{ display: "flex", width: "80%" }}>
+        <p style={{ color: "black", width: "100%" }}>URL</p>
+        <FilterLiveSearch
+          source="url"
+          label="Enter Coupon url"
+          style={{ width: "400%" }}
+        />
+      </div>
+
+      {/* <LastVisitedFilter />
+          <HasOrderedFilter />
+          <HasNewsletterFilter />
+          <SegmentFilter /> */}
+    </CardContent>
+  </Card>
+);
 const CouponList = (props) => {
   return (
-    <List {...props} filters={<PostFilter />}>
+    <List {...props} filters={<PostFilter />} aside={<FilterSidebar />}>
       <Datagrid>
-        <TextField source="id" />
+        {/* <TextField source="id" /> */}
         <ImageField source="image" label="images" className="thumbNail" />
         <TextField source="type" />
         <ReferenceField

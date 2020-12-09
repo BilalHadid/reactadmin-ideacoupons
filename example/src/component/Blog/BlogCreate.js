@@ -45,8 +45,8 @@ const BlogCreate = (props) => {
         </ImageInput>
         <span>OR</span>
         <TextInput source="image" title="images URL" />
+        <TextInput source="description" />
 
-        <RichTextInput source="description" />
         <DateInput source="timestamp" />
 
         <BooleanInput source="status" />

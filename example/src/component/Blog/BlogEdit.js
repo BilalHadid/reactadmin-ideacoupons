@@ -45,7 +45,7 @@ const BlogEdit = (props) => {
         </ImageInput>
         <span>OR</span>
         <TextInput source="image" title="images URL" />
-        <RichTextInput source="description" />
+        <TextInput source="description" />
         <DateInput source="timestamp" />
 
         <BooleanInput source="status" />

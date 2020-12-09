@@ -67,7 +67,7 @@ const CouponEdit = (props) => {
           <p style={{ color: "black", width: "100%" }}>Starting Date</p>
           <DateInput
             source="dealStart"
-            // defaultValue={new Date()}
+            defaultValue={new Date()}
             // defaultValue={new Date()}
             label="Starting Date"
             style={{ width: "380%" }}
