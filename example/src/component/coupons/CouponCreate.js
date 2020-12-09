@@ -140,9 +140,13 @@ const CouponCreate = (props) => {
           source="ForumCategory"
           choices={[{ id: "coupon", name: "General Coupon" }]}
         /> */}
+
         <div style={{ display: "flex", width: "100%" }}>
           <p style={{ color: "black", width: "20%" }}>Networks*</p>
-          <div className="Rasdio" style={{ width: "20%" }}>
+          <div
+            className="Rasdio"
+            style={{ width: "20%", overflow: "scroll", maxHeight: "150px" }}
+          >
             {/* <RadioButtonGroupInput
             source="SelectNetwork"
             choices={[
@@ -158,17 +162,6 @@ const CouponCreate = (props) => {
               <RadioButtonGroupInput optionText="name" />
             </ReferenceInput>
           </div>
-        </div>
-        <div style={{ display: "flex", width: "80%" }}>
-          <p style={{ color: "black", width: "100%" }}>Store</p>
-          <ReferenceInput
-            label="store"
-            source="store"
-            reference="store"
-            style={{ width: "380%" }}
-          >
-            <SelectInput multiple native optionText="title" />
-          </ReferenceInput>
         </div>
 
         {/* <InputLabel shrink htmlFor="select-multiple-native">
@@ -223,6 +216,25 @@ const CouponCreate = (props) => {
           >
             <SelectInput optionText="title" />
           </ReferenceInput>
+        </div>
+        <div style={{ display: "flex", width: "100%" }}>
+          <p style={{ color: "black", width: "20%" }}>Store</p>
+          <div
+            className="Rasdio"
+            style={{
+              width: "20%",
+              overflow: "scroll",
+              maxHeight: "150px",
+              marginLeft: "10px",
+            }}
+          >
+            <ReferenceInput label="store" source="store" reference="store">
+              <RadioButtonGroupInput
+                optionText="title"
+                style={{ display: "block" }}
+              />
+            </ReferenceInput>
+          </div>
         </div>
         {/* <ReferenceInput label="Category" source="category" reference="posts">
           <SelectInput optionText="title" />

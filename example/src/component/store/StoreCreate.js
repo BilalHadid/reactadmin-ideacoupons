@@ -85,19 +85,32 @@ const StoreCreate = (props) => {
         </div>
         <div style={{ display: "flex", width: "80%" }}>
           <p style={{ color: "black", width: "20%" }}>Categories*</p>
-          <ReferenceInput label="Category" source="category" reference="posts">
-            <SelectInput optionText="title" />
-          </ReferenceInput>
+          <div
+            className="Rasdio"
+            style={{ width: "20%", overflow: "scroll", maxHeight: "150px" }}
+          >
+            <ReferenceInput
+              label="Category"
+              source="category"
+              reference="posts"
+            >
+              <RadioButtonGroupInput optionText="title" />
+            </ReferenceInput>
+          </div>
         </div>
 
         <div style={{ display: "flex", width: "80%" }}>
           <p style={{ color: "black", width: "100%" }}>Description*</p>
+          <TextInput source="Description" style={{ width: "380%" }} />
         </div>
-        <RichTextInput source="Description" />
+
         {/* <MarkdownInput source="Description" /> */}
         <div style={{ display: "flex", width: "100%" }}>
           <p style={{ color: "black", width: "20%" }}>Networks*</p>
-          <div className="Rasdio" style={{ width: "20%" }}>
+          <div
+            className="Rasdio"
+            style={{ width: "20%", overflow: "scroll", maxHeight: "150px" }}
+          >
             {/* <RadioButtonGroupInput
             source="SelectNetwork"
             choices={[

@@ -95,7 +95,10 @@ const StoreEdit = (props) => {
         {/* <MarkdownInput source="Description" /> */}
         <div style={{ display: "flex", width: "100%" }}>
           <p style={{ color: "black", width: "20%" }}>Networks*</p>
-          <div className="Rasdio" style={{ width: "20%" }}>
+          <div
+            className="Rasdio"
+            style={{ width: "20%", overflow: "scroll", maxHeight: "150px" }}
+          >
             {/* <RadioButtonGroupInput
             source="SelectNetwork"
             choices={[
@@ -112,7 +115,6 @@ const StoreEdit = (props) => {
             </ReferenceInput>
           </div>
         </div>
-
         {/* <DateInput source="leftTime" /> */}
         {/* <ImageInput source="image" label="desc" accept="">
           <ImageField source="image" src="url" title="desc" />

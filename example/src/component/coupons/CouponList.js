@@ -13,6 +13,7 @@ import {
   TextInput,
   ReferenceField,
   FilterLiveSearch,
+  Pagination,
 } from "react-admin";
 
 import { Card as MuiCard, CardContent, withStyles } from "@material-ui/core";
@@ -35,6 +36,9 @@ const Card = withStyles((theme) => ({
     },
   },
 }))(MuiCard);
+const PostPagination = (props) => (
+  <Pagination rowsPerPageOptions={[5, 10, 25, 50, 100]} {...props} />
+);
 const FilterSidebar = () => (
   <Card style={{ width: "500px" }}>
     <CardContent>
@@ -91,8 +95,13 @@ const FilterSidebar = () => (
 );
 const CouponList = (props) => {
   return (
-    <List {...props} filters={<PostFilter />} aside={<FilterSidebar />}>
-      <Datagrid>
+    <List
+      {...props}
+      filters={<PostFilter />}
+      aside={<FilterSidebar />}
+      pagination={<PostPagination />}
+    >
+      <Datagrid rowClick="toggleSelection">
         {/* <TextField source="id" /> */}
         <ImageField source="image" label="images" className="thumbNail" />
         <TextField source="type" />
