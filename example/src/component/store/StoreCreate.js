@@ -10,15 +10,35 @@ import {
   DateInput,
   SelectInput,
   ReferenceInput,
+  required,
+  email,
+  minLength,
+  maxLength,
 } from "react-admin";
 // import { Card } from "@material-ui/core";
 import RichTextInput from "ra-input-rich-text";
 import "../user.css";
 import TextareaAutosize from "@material-ui/core/TextareaAutosize";
+
+const validateFirstName = [required(), maxLength(35)];
 const StoreCreate = (props) => {
   return (
     <Create title="Create a Store" {...props}>
-      <SimpleForm>
+      <SimpleForm
+        validate={(values) => {
+          const errors = {};
+          if (!values.name) {
+            errors.name = "Please Enter Store";
+          }
+          if (!values.title) {
+            errors.title = "Please Enter title";
+          }
+          if (!values.url) {
+            errors.url = "Please Enter url";
+          }
+          return errors;
+        }}
+      >
         <div
           style={{
             marginBottom: "-55px",
@@ -35,6 +55,8 @@ const StoreCreate = (props) => {
           <TextInput
             source="name"
             label="Enter Store Name"
+            autoFocus
+            validate={required()}
             style={{ width: "380%" }}
           />
         </div>
@@ -53,6 +75,40 @@ const StoreCreate = (props) => {
             label="Enter Store WebAddress"
             style={{ width: "380%" }}
           />
+        </div>
+        <div style={{ display: "flex", width: "80%" }}>
+          <p style={{ color: "black", width: "100%" }}>Country*</p>
+
+          <ReferenceInput
+            label="Country"
+            source="countries"
+            reference="country"
+            validate={required()}
+          >
+            <SelectInput optionText="Name" style={{ width: "380%" }} />
+          </ReferenceInput>
+        </div>
+        <div style={{ display: "flex", width: "100%" }}>
+          <p style={{ color: "black", width: "20%" }}>Networks*</p>
+          <div
+            className="Rasdio"
+            style={{ width: "20%", overflow: "scroll", maxHeight: "150px" }}
+          >
+            {/* <RadioButtonGroupInput
+            source="SelectNetwork"
+            choices={[
+              { id: "programming", name: "Paid On Result" },
+              { id: "photography", name: "ClickWise" },
+            ]}
+          /> */}
+            <ReferenceInput
+              label="Networks"
+              source="SelectNetwork"
+              reference="networks"
+            >
+              <RadioButtonGroupInput optionText="name" />
+            </ReferenceInput>
+          </div>
         </div>
         <div style={{ display: "flex", width: "80%" }}>
           <p style={{ color: "black", width: "100%" }}>Tracking Link*</p>
@@ -105,28 +161,6 @@ const StoreCreate = (props) => {
         </div>
 
         {/* <MarkdownInput source="Description" /> */}
-        <div style={{ display: "flex", width: "100%" }}>
-          <p style={{ color: "black", width: "20%" }}>Networks*</p>
-          <div
-            className="Rasdio"
-            style={{ width: "20%", overflow: "scroll", maxHeight: "150px" }}
-          >
-            {/* <RadioButtonGroupInput
-            source="SelectNetwork"
-            choices={[
-              { id: "programming", name: "Paid On Result" },
-              { id: "photography", name: "ClickWise" },
-            ]}
-          /> */}
-            <ReferenceInput
-              label="Networks"
-              source="SelectNetwork"
-              reference="networks"
-            >
-              <RadioButtonGroupInput optionText="name" />
-            </ReferenceInput>
-          </div>
-        </div>
 
         {/* <DateInput source="leftTime" /> */}
         {/* <ImageInput source="image" label="desc" accept="">
@@ -159,6 +193,17 @@ const StoreCreate = (props) => {
 
         <BooleanInput source="featured" />
         <BooleanInput source="status" />
+        <TextInput
+          source="adddate"
+          defaultValue={new Date().toUTCString()}
+          disabled
+        />
+        <TextInput
+          source="AddBy"
+          label="Added by"
+          defaultValue="faizan"
+          disabled
+        />
       </SimpleForm>
     </Create>
   );

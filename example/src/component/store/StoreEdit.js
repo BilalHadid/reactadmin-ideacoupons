@@ -53,6 +53,28 @@ const StoreEdit = (props) => {
             style={{ width: "380%" }}
           />
         </div>
+        <div style={{ display: "flex", width: "100%" }}>
+          <p style={{ color: "black", width: "20%" }}>Networks*</p>
+          <div
+            className="Rasdio"
+            style={{ width: "20%", overflow: "scroll", maxHeight: "150px" }}
+          >
+            {/* <RadioButtonGroupInput
+            source="SelectNetwork"
+            choices={[
+              { id: "programming", name: "Paid On Result" },
+              { id: "photography", name: "ClickWise" },
+            ]}
+          /> */}
+            <ReferenceInput
+              label="Networks"
+              source="SelectNetwork"
+              reference="networks"
+            >
+              <RadioButtonGroupInput optionText="name" />
+            </ReferenceInput>
+          </div>
+        </div>
         <div style={{ display: "flex", width: "80%" }}>
           <p style={{ color: "black", width: "100%" }}>Tracking Link*</p>
           <TextInput
@@ -93,28 +115,7 @@ const StoreEdit = (props) => {
         </div>
         <RichTextInput source="Description" />
         {/* <MarkdownInput source="Description" /> */}
-        <div style={{ display: "flex", width: "100%" }}>
-          <p style={{ color: "black", width: "20%" }}>Networks*</p>
-          <div
-            className="Rasdio"
-            style={{ width: "20%", overflow: "scroll", maxHeight: "150px" }}
-          >
-            {/* <RadioButtonGroupInput
-            source="SelectNetwork"
-            choices={[
-              { id: "programming", name: "Paid On Result" },
-              { id: "photography", name: "ClickWise" },
-            ]}
-          /> */}
-            <ReferenceInput
-              label="Networks"
-              source="SelectNetwork"
-              reference="networks"
-            >
-              <RadioButtonGroupInput optionText="name" />
-            </ReferenceInput>
-          </div>
-        </div>
+
         {/* <DateInput source="leftTime" /> */}
         {/* <ImageInput source="image" label="desc" accept="">
           <ImageField source="image" src="url" title="desc" />
@@ -146,6 +147,12 @@ const StoreEdit = (props) => {
 
         <BooleanInput source="featured" />
         <BooleanInput source="status" />
+        <TextInput
+          source="editby"
+          defaultValue={new Date().toUTCString()}
+          disabled
+        />
+        <TextInput source="edit" defaultValue="faizan" disabled />
       </SimpleForm>
     </Edit>
   );

@@ -17,7 +17,6 @@ const UserEdit = (props) => {
         <TextInput disabled source="id" />
         <TextInput source="name" />
         <TextInput source="email" />
-        <TextInput source="mobile" />
         <TextInput source="password" />
         <BooleanInput source="administrator" />
         {/* <ImageInput source="image" label="desc" accept="image/*">
@@ -37,11 +36,6 @@ const UserEdit = (props) => {
         >
           <ImageField source="image" title="images" />
         </ImageInput>
-        <TextInput source="gender" />
-        <DateInput source="birth" />
-        <TextInput source="your Website" />
-        <RichTextInput source="yourAddress" />
-        <RichTextInput source="Biography" />
       </SimpleForm>
     </Edit>
   );

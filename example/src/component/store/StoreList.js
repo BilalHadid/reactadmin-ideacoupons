@@ -14,6 +14,8 @@ import {
   FilterList,
   FilterListItem,
   FilterLiveSearch,
+  ReferenceInput,
+  SelectInput,
 } from "react-admin";
 import { Card as MuiCard, CardContent, withStyles } from "@material-ui/core";
 import AccessTimeIcon from "@material-ui/icons/AccessTime";
@@ -51,7 +53,6 @@ const FilterSidebar = () => (
           style={{ width: "400%" }}
         />
       </div>
-
       <div style={{ display: "flex", width: "80%" }}>
         <p style={{ color: "black", width: "100%" }}>URL</p>
         <FilterLiveSearch
@@ -60,7 +61,6 @@ const FilterSidebar = () => (
           style={{ width: "400%" }}
         />
       </div>
-
       <div style={{ display: "flex", width: "80%" }}>
         <p style={{ color: "black", width: "100%" }}>name</p>
         <FilterLiveSearch
@@ -69,7 +69,6 @@ const FilterSidebar = () => (
           style={{ width: "400%" }}
         />
       </div>
-
       <div style={{ display: "flex", width: "80%" }}>
         <p style={{ color: "black", width: "100%" }}>Address</p>
         <FilterLiveSearch
@@ -78,7 +77,42 @@ const FilterSidebar = () => (
           style={{ width: "450%" }}
         />
       </div>
+      <div style={{ display: "flex", width: "80%" }}>
+        <p style={{ color: "black", width: "100%" }}>Network</p>
 
+        <FilterLiveSearch
+          source="SelectNetwork"
+          label="Enter Network Name"
+          style={{ width: "450%" }}
+        />
+      </div>
+      <div style={{ display: "flex", width: "80%" }}>
+        <p style={{ color: "black", width: "100%" }}>Category</p>
+
+        <FilterLiveSearch
+          source="category"
+          label="Enter Category Name"
+          style={{ width: "450%" }}
+        />
+      </div>
+      <div style={{ display: "flex", width: "80%" }}>
+        <p style={{ color: "black", width: "100%" }}>Add By</p>
+
+        <FilterLiveSearch
+          source="AddBy"
+          label="Enter Add by"
+          style={{ width: "450%" }}
+        />
+      </div>{" "}
+      <div style={{ display: "flex", width: "80%" }}>
+        <p style={{ color: "black", width: "100%" }}>Updated By</p>
+
+        <FilterLiveSearch
+          source="edit"
+          label="Enter Updated By"
+          style={{ width: "450%" }}
+        />
+      </div>
       {/* <LastVisitedFilter />
           <HasOrderedFilter />
           <HasNewsletterFilter />
@@ -111,8 +145,13 @@ const StoreList = (props) => {
           <TextField source="title" label="Category" />
         </ReferenceField>
         <TextField source="Address" />
-        <BooleanField source="featured" />
-        <BooleanField source="status" />
+        {/* <BooleanField source="featured" /> */}
+        {/* <BooleanField source="status" /> */}
+        <TextField source="AddBy" label="Added By" />
+        <TextField source="adddate" label="Added Date" />
+        <TextField source="edit" label="Edit By" />
+        <TextField source="editby" label="Edit Date" />
+
         <EditButton basePath="/store" />
         <DeleteButton basePath="/store" />
       </Datagrid>

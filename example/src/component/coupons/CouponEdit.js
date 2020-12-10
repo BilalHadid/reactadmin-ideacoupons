@@ -237,6 +237,13 @@ const CouponEdit = (props) => {
         <BooleanInput source="dealExclusive" />
         <BooleanInput source="Verified" />
         <BooleanInput source="status" />
+
+        <TextInput
+          source="editby"
+          defaultValue={new Date().toUTCString()}
+          disabled
+        />
+        <TextInput source="edit" defaultValue="faizan" disabled />
       </SimpleForm>
     </Edit>
   );

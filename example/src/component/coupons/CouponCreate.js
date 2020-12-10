@@ -87,14 +87,16 @@ const CouponCreate = (props) => {
           <TextInput
             source="type"
             label="Description"
+            validate={required()}
             style={{ width: "380%" }}
           />
         </div>
         <div style={{ display: "flex", width: "80%" }}>
-          <p style={{ color: "black", width: "100%" }}>Coupon URL*</p>
+          <p style={{ color: "black", width: "100%" }}>Tracking Link*</p>
           <TextInput
             source="dealURL"
-            label="Enter Coupon URL"
+            label="Enter Tracking Link"
+            validate={required()}
             style={{ width: "380%" }}
           />
         </div>
@@ -217,30 +219,22 @@ const CouponCreate = (props) => {
             <SelectInput optionText="title" />
           </ReferenceInput>
         </div>
-        <div style={{ display: "flex", width: "100%" }}>
-          <p style={{ color: "black", width: "20%" }}>Store</p>
-          <div
-            className="Rasdio"
-            style={{
-              width: "20%",
-              overflow: "scroll",
-              maxHeight: "150px",
-              marginLeft: "10px",
-            }}
-          >
-            <ReferenceInput label="store" source="store" reference="store">
+        <div style={{ display: "flex", width: "80%" }}>
+          <p style={{ color: "black", width: "100%" }}>Store</p>
+
+          {/* <ReferenceInput label="store" source="store" reference="store">
               <RadioButtonGroupInput
                 optionText="title"
                 style={{ display: "block" }}
               />
-            </ReferenceInput>
-          </div>
+            </ReferenceInput> */}
+          <TextInput source="store" style={{ width: "380%" }} />
         </div>
         {/* <ReferenceInput label="Category" source="category" reference="posts">
           <SelectInput optionText="title" />
         </ReferenceInput> */}
         {/* <ImageInput source="image" label="title" accept="image/*"></ImageInput> */}
-        <div style={{ display: "flex", width: "80%" }}>
+        {/* <div style={{ display: "flex", width: "80%" }}>
           <p style={{ color: "black", width: "100%" }}>Image URL</p>
 
           <TextInput
@@ -264,12 +258,24 @@ const CouponCreate = (props) => {
           }
         >
           <ImageField source="image" title="images" />
-        </ImageInput>
+        </ImageInput> */}
 
         <BooleanInput source="fetured" />
         <BooleanInput source="dealExclusive" />
         <BooleanInput source="Verified" />
         <BooleanInput source="status" />
+
+        <TextInput
+          source="adddate"
+          defaultValue={new Date().toUTCString()}
+          disabled
+        />
+        <TextInput
+          source="AddBy"
+          label="Added by"
+          defaultValue="faizan"
+          disabled
+        />
       </SimpleForm>
     </Create>
   );

@@ -13,6 +13,7 @@ import {
   RichTextField,
   Filter,
   TextInput,
+  Admin,
 } from "react-admin";
 import "./user.css";
 
@@ -77,19 +78,13 @@ const UserList = ({ permissions, ...props }) => {
         <TextField source="id" />
         <TextField source="name" />
         <EmailField source="email" />
-        <TextField source="mobile" />
         <TextField source="password" />
         <BooleanField source="administrator" />
-        <ImageField source="image" title="images" className="thumbNailView" />
-        <TextField source="gender" />
-        <DateField source="birth" />
-        <TextField source="your Website" />
-        <RichTextField source="yourAddress" />
-        <RichTextField source="Biography" />
-
-        <EditButton basePath="/users" />
-
-        <DeleteButton basePath="/users" />
+        {permissions === Admin ? (
+          <DeleteButton basePath="/users" />
+        ) : (
+          <EditButton basePath="/users" />
+        )}
       </Datagrid>
     </List>
   );

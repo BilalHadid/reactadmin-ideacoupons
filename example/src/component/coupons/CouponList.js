@@ -43,10 +43,10 @@ const FilterSidebar = () => (
   <Card style={{ width: "500px" }}>
     <CardContent>
       <div style={{ display: "flex", width: "80%" }}>
-        <p style={{ color: "black", width: "100%" }}>Id</p>
+        <p style={{ color: "black", width: "100%" }}>Store Name</p>
         <FilterLiveSearch
-          source="id"
-          label="Enter Coupon id"
+          source="store"
+          label="Enter Store Name"
           style={{ width: "400%" }}
         />
       </div>
@@ -78,14 +78,30 @@ const FilterSidebar = () => (
       </div>
 
       <div style={{ display: "flex", width: "80%" }}>
-        <p style={{ color: "black", width: "100%" }}>URL</p>
+        <p style={{ color: "black", width: "100%" }}>Country</p>
         <FilterLiveSearch
-          source="url"
-          label="Enter Coupon url"
+          source="Country"
+          label="Enter Country Name"
           style={{ width: "400%" }}
         />
       </div>
 
+      <div style={{ display: "flex", width: "80%" }}>
+        <p style={{ color: "black", width: "100%" }}>Add by</p>
+        <FilterLiveSearch
+          source="AddBy"
+          label="Enter Add By"
+          style={{ width: "400%" }}
+        />
+      </div>
+      <div style={{ display: "flex", width: "80%" }}>
+        <p style={{ color: "black", width: "100%" }}>Update by</p>
+        <FilterLiveSearch
+          source="edit"
+          label="Enter Update by"
+          style={{ width: "400%" }}
+        />
+      </div>
       {/* <LastVisitedFilter />
           <HasOrderedFilter />
           <HasNewsletterFilter />
@@ -101,8 +117,8 @@ const CouponList = (props) => {
       aside={<FilterSidebar />}
       pagination={<PostPagination />}
     >
-      <Datagrid rowClick="toggleSelection">
-        {/* <TextField source="id" /> */}
+      <Datagrid>
+        <TextField source="id" />
         <ImageField source="image" label="images" className="thumbNail" />
         <TextField source="type" />
         <ReferenceField
@@ -131,7 +147,7 @@ const CouponList = (props) => {
         >
           <TextField source="title" />
         </ReferenceField>
-        <ReferenceField
+        {/* <ReferenceField
           label="users"
           source="user"
           reference="users"
@@ -141,7 +157,11 @@ const CouponList = (props) => {
         </ReferenceField>
         <BooleanField source="fetured" />
         <BooleanField source="Verified" />
-        <BooleanField source="status" />
+        <BooleanField source="status" /> */}
+        <TextField source="AddBy" label="Added By" />
+        <TextField source="adddate" label="Added Date" />
+        <TextField source="edit" label="Edit By" />
+        <TextField source="editby" label="Edit Date" />
         <EditButton basePath="/CouponDeal" />
         <DeleteButton basePath="/CouponDeal" />
       </Datagrid>

@@ -13,12 +13,13 @@ const SliderList = (props) => {
     <List {...props}>
       <Datagrid>
         <TextField source="id" />
-        <ImageField
+        {/* <ImageField
           source="image"
           src="url"
           label="SliderImage"
           className="thumbNail1"
-        />
+        /> */}
+        <ImageField source="image" label="images" className="thumbNail" />
         {/* <ImageField source="url" label="all" className="thumbNail1" /> */}
 
         <EditButton basePath="/slider" />

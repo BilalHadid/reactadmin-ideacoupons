@@ -182,12 +182,12 @@ const Main = () => {
         create={PageCreate}
         edit={PageEdit}
       />
-      <Resource
+      {/* <Resource
         name="homebanner"
         list={HomeList}
         create={HomeCreate}
         icon={HomeWorkIcon}
-      />
+      /> */}
     </Admin>
   );
 };
