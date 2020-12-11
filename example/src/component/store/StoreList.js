@@ -16,7 +16,11 @@ import {
   FilterLiveSearch,
   ReferenceInput,
   SelectInput,
+  SimpleShowLayout,
 } from "react-admin";
+import DeleteWithCustomConfirmButton from "ra-delete-with-custom-confirm-button";
+import Delete from "@material-ui/icons/Delete";
+import ErrorOutline from "@material-ui/icons/ErrorOutline";
 import { Card as MuiCard, CardContent, withStyles } from "@material-ui/core";
 import AccessTimeIcon from "@material-ui/icons/AccessTime";
 import MonetizationOnIcon from "@material-ui/icons/MonetizationOnOutlined";
@@ -42,6 +46,15 @@ const Card = withStyles((theme) => ({
     },
   },
 }))(MuiCard);
+const DeleteConfirmTitle = "Are you sure you want to delete this post?";
+const DeleteConfirmContent = (props) => {
+  return (
+    <SimpleShowLayout {...props}>
+      <TextField source="id" label="id" />
+      <TextField source="name" label="Store Name" />
+    </SimpleShowLayout>
+  );
+};
 const FilterSidebar = () => (
   <Card style={{ width: "500px" }}>
     <CardContent>
@@ -153,7 +166,17 @@ const StoreList = (props) => {
         <TextField source="editby" label="Edit Date" />
 
         <EditButton basePath="/store" />
-        <DeleteButton basePath="/store" />
+        {/* <DeleteButton basePath="/store" /> */}
+        <DeleteWithCustomConfirmButton
+          title={DeleteConfirmTitle} // your custom title of delete confirm dialog
+          content={DeleteConfirmContent} // your custom contents of delete confirm dialog
+          label="Delete" // label of delete button (default: 'Delete')
+          confirmColor="warning" // color of delete button ('warning' or 'primary', default: 'warning')
+          ConfirmIcon={Delete} // icon of delete button (default: 'Delete')
+          cancel="Cancel" // label of cancel button (default: 'Cancel')
+          CancelIcon={ErrorOutline} // icon of cancel button (default: 'ErrorOutline')
+          undoable={true} // undoable (default: true)
+        />
       </Datagrid>
     </List>
   );

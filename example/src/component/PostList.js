@@ -16,13 +16,25 @@ import {
   CreateButton,
   BooleanField,
   DateField,
+  SimpleShowLayout,
 } from "react-admin";
+import DeleteWithCustomConfirmButton from "ra-delete-with-custom-confirm-button";
+import Delete from "@material-ui/icons/Delete";
+import ErrorOutline from "@material-ui/icons/ErrorOutline";
 import "./user.css";
 // import jsonExport from "jsonexport/dist";
 // import PropTypes from "prop-types";
 // import IconEvent from "@material-ui/icons/Event";
 // import { Card, CardContent } from "@material-ui/core";
-
+const DeleteConfirmTitle = "Are you sure you want to delete this post?";
+const DeleteConfirmContent = (props) => {
+  return (
+    <SimpleShowLayout {...props}>
+      <TextField source="id" label="id" />
+      <TextField source="title" label="title" />
+    </SimpleShowLayout>
+  );
+};
 const ListActions = (props) => {
   const { className, exporter, filters, maxResults, ...rest } = props;
   const {
@@ -100,7 +112,17 @@ const PostList = (props) => {
 
         <BooleanField source="status" />
         <EditButton basePath="/posts" label="Edit" />
-        <DeleteButton basePath="/posts" label="Delete" />
+        {/* <DeleteButton basePath="/posts" label="Delete" /> */}
+        <DeleteWithCustomConfirmButton
+          title={DeleteConfirmTitle} // your custom title of delete confirm dialog
+          content={DeleteConfirmContent} // your custom contents of delete confirm dialog
+          label="Delete" // label of delete button (default: 'Delete')
+          confirmColor="warning" // color of delete button ('warning' or 'primary', default: 'warning')
+          ConfirmIcon={Delete} // icon of delete button (default: 'Delete')
+          cancel="Cancel" // label of cancel button (default: 'Cancel')
+          CancelIcon={ErrorOutline} // icon of cancel button (default: 'ErrorOutline')
+          undoable={true} // undoable (default: true)
+        />
       </Datagrid>
     </List>
   );
