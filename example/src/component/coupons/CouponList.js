@@ -14,12 +14,28 @@ import {
   ReferenceField,
   FilterLiveSearch,
   Pagination,
+  Confirm,
+  SimpleShowLayout,
 } from "react-admin";
+import DeleteWithCustomConfirmButton from "ra-delete-with-custom-confirm-button";
+import Delete from "@material-ui/icons/Delete";
+import ErrorOutline from "@material-ui/icons/ErrorOutline";
+import { makeStyles } from "@material-ui/core/styles";
+import Typography from "@material-ui/core/Typography";
+import Button from "@material-ui/core/Button";
+import Popper from "@material-ui/core/Popper";
+import PopupState, { bindToggle, bindPopper } from "material-ui-popup-state";
+import Fade from "@material-ui/core/Fade";
+import Paper from "@material-ui/core/Paper";
 
 import { Card as MuiCard, CardContent, withStyles } from "@material-ui/core";
 
 import "../user.css";
-
+const useStyles = makeStyles((theme) => ({
+  typography: {
+    padding: theme.spacing(2),
+  },
+}));
 const PostFilter = (props) => (
   <Filter {...props}>
     <TextInput label="Search" source="type" alwaysOn />
@@ -109,7 +125,17 @@ const FilterSidebar = () => (
     </CardContent>
   </Card>
 );
+const DeleteConfirmTitle = "Are you sure you want to delete this post?";
+const DeleteConfirmContent = (props) => {
+  return (
+    <SimpleShowLayout {...props}>
+      <TextField source="id" label="id" />
+      <TextField source="title" label="title" />
+    </SimpleShowLayout>
+  );
+};
 const CouponList = (props) => {
+  const classes = useStyles();
   return (
     <List
       {...props}
@@ -163,7 +189,17 @@ const CouponList = (props) => {
         <TextField source="edit" label="Edit By" />
         <TextField source="editby" label="Edit Date" />
         <EditButton basePath="/CouponDeal" />
-        <DeleteButton basePath="/CouponDeal" />
+        <DeleteWithCustomConfirmButton
+          title={DeleteConfirmTitle} // your custom title of delete confirm dialog
+          content={DeleteConfirmContent} // your custom contents of delete confirm dialog
+          label="Delete" // label of delete button (default: 'Delete')
+          confirmColor="warning" // color of delete button ('warning' or 'primary', default: 'warning')
+          ConfirmIcon={Delete} // icon of delete button (default: 'Delete')
+          cancel="Cancel" // label of cancel button (default: 'Cancel')
+          CancelIcon={ErrorOutline} // icon of cancel button (default: 'ErrorOutline')
+          undoable={true} // undoable (default: true)
+        />
+        {/* <DeleteButton basePath="/CouponDeal" /> */}
       </Datagrid>
     </List>
   );
