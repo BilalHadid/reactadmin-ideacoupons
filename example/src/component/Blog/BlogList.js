@@ -20,7 +20,7 @@ const BlogList = (props) => {
         <TextField source="id" />
         <ImageField source="image" title="images" className="thumbNail" />
         <TextField source="title" />
-        <TextField source="description" />
+        {/* <RichTextField source="description" /> */}
         {/* <TextField source="created" /> */}
         <ReferenceField label="users" source="user" reference="users">
           <TextField source="name" />

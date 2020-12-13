@@ -14,6 +14,7 @@ import {
   email,
   minLength,
   maxLength,
+  AutocompleteInput,
 } from "react-admin";
 // import { Card } from "@material-ui/core";
 import RichTextInput from "ra-input-rich-text";
@@ -141,18 +142,15 @@ const StoreCreate = (props) => {
         </div>
         <div style={{ display: "flex", width: "80%" }}>
           <p style={{ color: "black", width: "20%" }}>Categories*</p>
-          <div
-            className="Rasdio"
-            style={{ width: "20%", overflow: "scroll", maxHeight: "150px" }}
+
+          <ReferenceInput
+            label="Category"
+            source="category"
+            reference="posts"
+            filterToQuery={(searchText) => ({ title: searchText })}
           >
-            <ReferenceInput
-              label="Category"
-              source="category"
-              reference="posts"
-            >
-              <RadioButtonGroupInput optionText="title" />
-            </ReferenceInput>
-          </div>
+            <AutocompleteInput optionText="title" resettable />
+          </ReferenceInput>
         </div>
 
         <div style={{ display: "flex", width: "80%" }}>

@@ -11,6 +11,7 @@ import {
   ReferenceInput,
   required,
   RadioButtonGroupInput,
+  AutocompleteInput,
 } from "react-admin";
 
 import RichTextInput from "ra-input-rich-text";
@@ -160,6 +161,7 @@ const CouponCreate = (props) => {
               label="Networks"
               source="SelectNetwork"
               reference="networks"
+              validate={required()}
             >
               <RadioButtonGroupInput optionText="name" />
             </ReferenceInput>
@@ -207,29 +209,49 @@ const CouponCreate = (props) => {
             { id: "3", name: "Accessories" },
           ]}
         /> */}
+
         <div style={{ display: "flex", width: "80%" }}>
-          <p style={{ color: "black", width: "100%" }}>Categories</p>
+          <p style={{ color: "black", width: "22%" }}>Categories</p>
 
           <ReferenceInput
             label="Category"
             source="category"
             reference="posts"
             style={{ width: "380%" }}
+            filterToQuery={(searchText) => ({ title: searchText })}
           >
-            <SelectInput optionText="title" />
+            <AutocompleteInput optionText="title" resettable />
           </ReferenceInput>
         </div>
         <div style={{ display: "flex", width: "80%" }}>
-          <p style={{ color: "black", width: "100%" }}>Store</p>
+          <p style={{ color: "black", width: "22%" }}>Store</p>
 
-          {/* <ReferenceInput label="store" source="store" reference="store">
+          <ReferenceInput
+            label="store"
+            source="store"
+            reference="store"
+            validate={required()}
+            filterToQuery={(searchText) => ({ title: searchText })}
+            style={{ width: "380%" }}
+          >
+            <AutocompleteInput
+              optionText="title"
+              resettable
+              style={{ width: "380%" }}
+            />
+          </ReferenceInput>
+          {/* <TextInput
+            source="store"
+            style={{ width: "380%" }}
+            validate={required()}
+          /> */}
+        </div>
+        {/* <ReferenceInput label="store" source="store" reference="store">
               <RadioButtonGroupInput
                 optionText="title"
                 style={{ display: "block" }}
               />
             </ReferenceInput> */}
-          <TextInput source="store" style={{ width: "380%" }} />
-        </div>
         {/* <ReferenceInput label="Category" source="category" reference="posts">
           <SelectInput optionText="title" />
         </ReferenceInput> */}

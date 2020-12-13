@@ -145,6 +145,7 @@ const PostEdit = (props) => {
         <TextInput source="title" />
         <TextInput multiline source="body" />
         <BooleanInput label="status" source="status" />
+        <BooleanInput label="Seasonal" source="session" />
       </SimpleForm>
     </Edit>
   );

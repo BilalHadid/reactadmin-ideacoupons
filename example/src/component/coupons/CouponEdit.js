@@ -11,6 +11,7 @@ import {
   SelectInput,
   required,
   RadioButtonGroupInput,
+  AutocompleteInput,
 } from "react-admin";
 const CouponEdit = (props) => {
   return (
@@ -48,7 +49,7 @@ const CouponEdit = (props) => {
           />
         </div>
         <div style={{ display: "flex", width: "80%" }}>
-          <p style={{ color: "black", width: "100%" }}>Coupon URL*</p>
+          <p style={{ color: "black", width: "100%" }}>Tracking Link*</p>
           <TextInput
             source="dealURL"
             label="Enter Coupon URL"
@@ -172,7 +173,7 @@ const CouponEdit = (props) => {
             { id: "3", name: "Accessories" },
           ]}
         /> */}
-        <div style={{ display: "flex", width: "80%" }}>
+        {/* <div style={{ display: "flex", width: "80%" }}>
           <p style={{ color: "black", width: "100%" }}>Categories</p>
 
           <ReferenceInput
@@ -184,25 +185,48 @@ const CouponEdit = (props) => {
             <SelectInput optionText="title" />
           </ReferenceInput>
         </div>
-        <div style={{ display: "flex", width: "100%" }}>
-          <p style={{ color: "black", width: "20%" }}>Store</p>
-          <div
-            className="Rasdio"
-            style={{
-              width: "20%",
-              overflow: "scroll",
-              maxHeight: "150px",
-              marginLeft: "10px",
-            }}
+        <div style={{ display: "flex", width: "80%" }}>
+          <p style={{ color: "black", width: "100%" }}>Store</p>
+
+          <TextInput source="store" style={{ width: "380%" }} />
+        </div> */}
+        <div style={{ display: "flex", width: "80%" }}>
+          <p style={{ color: "black", width: "22%" }}>Categories</p>
+
+          <ReferenceInput
+            label="Category"
+            source="category"
+            reference="posts"
+            style={{ width: "380%" }}
+            filterToQuery={(searchText) => ({ title: searchText })}
           >
-            <ReferenceInput label="store" source="store" reference="store">
-              <RadioButtonGroupInput
-                optionText="title"
-                style={{ display: "block" }}
-              />
-            </ReferenceInput>
-          </div>
+            <AutocompleteInput optionText="title" resettable />
+          </ReferenceInput>
         </div>
+        <div style={{ display: "flex", width: "80%" }}>
+          <p style={{ color: "black", width: "22%" }}>Store</p>
+
+          <ReferenceInput
+            label="store"
+            source="store"
+            reference="store"
+            validate={required()}
+            filterToQuery={(searchText) => ({ title: searchText })}
+            style={{ width: "380%" }}
+          >
+            <AutocompleteInput
+              optionText="title"
+              resettable
+              style={{ width: "380%" }}
+            />
+          </ReferenceInput>
+          {/* <TextInput
+            source="store"
+            style={{ width: "380%" }}
+            validate={required()}
+          /> */}
+        </div>
+
         {/* <ReferenceInput label="Category" source="category" reference="posts">
           <SelectInput optionText="title" />
         </ReferenceInput> */}

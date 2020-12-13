@@ -137,7 +137,7 @@ const StoreList = (props) => {
   return (
     <List {...props} filters={<PostFilter />} aside={<FilterSidebar />}>
       <Datagrid>
-        {/* <TextField source="id" label="#" /> */}
+        <TextField source="id" label="#" />
 
         {/* <TextField source="title" label="Title"  /> */}
         <TextField source="name" label="Store Name" />
