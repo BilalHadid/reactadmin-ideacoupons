@@ -101,7 +101,7 @@ const StoreEdit = (props) => {
           />
         </div>
         <div style={{ display: "flex", width: "80%" }}>
-          <p style={{ color: "black", width: "100%" }}>Meta Disc*</p>
+          <p style={{ color: "black", width: "100%" }}>Meta Disc</p>
           <TextInput source="metaDisc" style={{ width: "380%" }} />
         </div>
         <div style={{ display: "flex", width: "80%" }}>
@@ -111,7 +111,7 @@ const StoreEdit = (props) => {
           </ReferenceInput>
         </div>
         <div style={{ display: "flex", width: "80%" }}>
-          <p style={{ color: "black", width: "100%" }}>Description*</p>
+          <p style={{ color: "black", width: "100%" }}>Description</p>
         </div>
         <RichTextInput source="Description" />
         {/* <MarkdownInput source="Description" /> */}

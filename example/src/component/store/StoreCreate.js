@@ -137,7 +137,7 @@ const StoreCreate = (props) => {
           />
         </div>
         <div style={{ display: "flex", width: "80%" }}>
-          <p style={{ color: "black", width: "100%" }}>Meta Disc*</p>
+          <p style={{ color: "black", width: "100%" }}>Meta Disc</p>
           <TextInput source="metaDisc" style={{ width: "380%" }} />
         </div>
         <div style={{ display: "flex", width: "80%" }}>
@@ -154,7 +154,7 @@ const StoreCreate = (props) => {
         </div>
 
         <div style={{ display: "flex", width: "80%" }}>
-          <p style={{ color: "black", width: "100%" }}>Description*</p>
+          <p style={{ color: "black", width: "100%" }}>Description</p>
           <TextInput source="Description" style={{ width: "380%" }} />
         </div>
 
