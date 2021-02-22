@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Create,
   SimpleForm,
@@ -23,6 +23,13 @@ import TextareaAutosize from "@material-ui/core/TextareaAutosize";
 
 const validateFirstName = [required(), maxLength(35)];
 const StoreCreate = (props) => {
+  const [img, setImg] = useState();
+  const onImageChange = (e) => {
+    if (e.target.files && e.target.files[0]) {
+      let imgs = e.target.files[0];
+      setImg(URL.createObjectURL(imgs));
+    }
+  };
   return (
     <Create title="Create a Store" {...props}>
       <SimpleForm
@@ -167,17 +174,23 @@ const StoreCreate = (props) => {
         <div style={{ display: "flex", width: "80%" }}>
           <p style={{ color: "black", width: "100%" }}>Enter Image URL*</p>
           <TextInput
-            source="image"
+            source="images"
             label="Enter Url for Image"
+            defaultValue={img}
             style={{ width: "380%" }}
           />
         </div>
 
         <span>OR</span>
-        <ImageInput
+        <span>
+          <img src={img} width="200px" height="200px" />
+          <h1>Select Image</h1>
+          <input type="file" name="myImage" onChange={onImageChange} />
+        </span>
+        {/* <ImageInput
           source=""
           label="title"
-          accept="image/png, image/jpg, image/jpeg"
+          accept="image/*"
           maxSize={5000000}
           placeholder={
             <p>
@@ -186,8 +199,8 @@ const StoreCreate = (props) => {
             </p>
           }
         >
-          <ImageField source="image" title="images" />
-        </ImageInput>
+          <ImageField source="images" title="image" />
+        </ImageInput> */}
 
         <BooleanInput source="featured" />
         <BooleanInput source="status" />
@@ -202,6 +215,15 @@ const StoreCreate = (props) => {
           defaultValue="faizan"
           disabled
         />
+
+        {/* <input
+          type="file"
+          id="file1"
+          name="image"
+          accept="image/*"
+          capture
+          onChange={(e) => console.log(e.target.value)}
+        /> */}
       </SimpleForm>
     </Create>
   );

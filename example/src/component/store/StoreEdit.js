@@ -9,11 +9,11 @@ import {
   DateInput,
   RadioButtonGroupInput,
   ReferenceInput,
-  SelectInput,
+  SelectInput
 } from "react-admin";
 import { Card } from "@material-ui/core";
 import RichTextInput from "ra-input-rich-text";
-const StoreEdit = (props) => {
+const StoreEdit = props => {
   return (
     <Edit title="Edit a Store" {...props}>
       <SimpleForm>
@@ -21,7 +21,7 @@ const StoreEdit = (props) => {
           style={{
             marginBottom: "-55px",
             marginTop: "-55px",
-            marginLeft: "-55px",
+            marginLeft: "-55px"
           }}
         >
           <h1 class="second">
@@ -133,12 +133,11 @@ const StoreEdit = (props) => {
         <ImageInput
           source=""
           label="title"
-          accept="image/png, image/jpg, image/jpeg"
-          maxSize={5000000}
+          accept="image/*"
           placeholder={
             <p>
               Upload Image
-              <span>*File size should not exceed 5MB</span>
+              {/* <span>*File size should not exceed 5MB</span> */}
             </p>
           }
         >
