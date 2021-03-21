@@ -35,3 +35,4 @@ const BlogList = (props) => {
 };
 
 export default BlogList;
+// "description": "Firebase data provider for react-admin framework. demo at https://BilalHadid.github.io/ideacouponAdminpane",
