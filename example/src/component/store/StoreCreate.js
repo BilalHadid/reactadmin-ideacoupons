@@ -181,7 +181,7 @@ const StoreCreate = (props) => {
           />
         </div>
 
-        <span>OR</span>
+        <span>OR another </span>
         <span>
           <img src={img} width="200px" height="200px" />
           <h1>Select Image</h1>
