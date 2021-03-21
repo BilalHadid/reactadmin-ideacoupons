@@ -1,7 +1,7 @@
 {
-    "name": "ideacouponadmin",
+    "name": "ideacouponadmins",
     "version": "3.0.0",
-    "description": "Firebase data provider for react-admin framework. demo at https://BilalHadid.github.io/reactadmin-ideacoupon",
+    "description": "Firebase data provider for react-admin framework. demo at https://BilalHadid.github.io/reactadmin-ideacouponpanel",
     "author": "bilal",
     "license": "MIT",
     "repository": "BilalHadid/reactadmin-ideacoupons",
